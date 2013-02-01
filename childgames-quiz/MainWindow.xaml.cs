@@ -3,9 +3,7 @@
     using System;
     using System.IO;
     using System.Windows;
-    using System.Windows.Controls;
     using System.Windows.Media.Imaging;
-    using System.Windows.Threading;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -87,7 +85,6 @@
                 TimeLabel.Visibility = Visibility.Visible;
                 TimeLabel.Content = ((TimeSpan)timeLeft).ToString("m':'s");
             }
-            
         }
 
         private void ShowFailed()
