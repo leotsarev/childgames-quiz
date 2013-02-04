@@ -29,6 +29,10 @@
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            if (MessageBox.Show("Для получения коэффициента следует ответить на вопросы теста. Начать тестирование?", "Тестирование", MessageBoxButton.YesNo) != MessageBoxResult.Yes)
+            {
+                this.Close();
+            }
             Quiz = new Quiz(new StreamReader("Data\\questions.csv"));
             UpdateQuestion();
         }
