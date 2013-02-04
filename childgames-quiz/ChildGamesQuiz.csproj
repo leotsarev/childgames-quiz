@@ -59,6 +59,7 @@
     <Compile Include="CsvParser.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Quiz.cs" />
+    <Compile Include="Properties\Settings.cs" />
     <Compile Include="UIExtensions.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

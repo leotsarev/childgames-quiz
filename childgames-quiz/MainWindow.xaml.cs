@@ -5,16 +5,26 @@
     using System.Windows;
     using System.Windows.Media.Imaging;
 
+    using ChildGamesQuiz.Properties;
+
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
-        private static readonly TimeSpan CoolDownTime = new TimeSpan(0, 10, 0);
-
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        protected Quiz Quiz { get; set; }
+
+        private static TimeSpan CoolDownTime
+        {
+            get
+            {
+                return Settings.Timeout();
+            }
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -42,9 +52,9 @@
             return img;
         }
 
-        protected Quiz Quiz { get; set; }
-
         private int ErrorCounts;
+
+        private static readonly Settings Settings = new Settings();
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
