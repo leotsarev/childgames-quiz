@@ -41,7 +41,7 @@
         {
             this.QuestionImage.Source = GetImageForQuestion(this.Quiz.Current);
             ErrorCounts = 0;
-            ErrorLabel.Visibility = Visibility.Hidden;
+            ErrorLabel.Visibility = Visibility.Collapsed;
             this.AnswerTextBox.Text = "";
         }
 
@@ -92,12 +92,12 @@
         {
             if (timeLeft == null)
             {
-                TimeLabel.Visibility = Visibility.Hidden;
+                TimeLabel.Visibility = Visibility.Collapsed;
             }
             else
             {
                 TimeLabel.Visibility = Visibility.Visible;
-                TimeLabel.Content = ((TimeSpan)timeLeft).ToString("m':'s");
+                TimeLabel.Content = "Следующая попытка через " + ((TimeSpan)timeLeft).ToString("m':'s");
             }
         }
 
@@ -108,7 +108,7 @@
 
         private void ShowSecret()
         {
-            MessageBox.Show("Искомое значение: " + Quiz.Result, "Тест пройден");
+            MessageBox.Show("Тест пройден. Искомое значение: " + Quiz.Result, "Тест пройден");
         }
     }
 }
