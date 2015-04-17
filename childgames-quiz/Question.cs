@@ -6,7 +6,6 @@
 
 namespace ChildGamesQuiz
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text.RegularExpressions;
@@ -16,23 +15,28 @@ namespace ChildGamesQuiz
     /// </summary>
     public class Question
     {
-        public string Picture { get; set; }
+        public string Picture { get; private set; }
 
         private ICollection<Regex> CorrectAnswersMask { get; set; }
 
         public bool Check(string text)
         {
-            return CorrectAnswersMask.Any(re => re.IsMatch(text));
+          text = text.ToUpperInvariant();
+          return CorrectAnswersMask.Any(re => re.IsMatch(text));
         }
 
         private static string MaskToRegex(string mask)
         {
-            return mask.Replace(".", "[.]").Replace("*", ".*").Replace("?", ".");
+          return mask.ToUpperInvariant().Replace(".", "[.]").Replace("*", ".*").Replace("?", ".");
         }
 
         public static Question CreateFromStrings(IList<string> row)
         {
-            return new Question { Picture = row[0], CorrectAnswersMask = row.Skip(1).Select(mask => new Regex(MaskToRegex(mask))).ToArray() };
+          return new Question
+          {
+            Picture = row[0],
+            CorrectAnswersMask = row.Skip(1).Select(mask => new Regex(MaskToRegex(mask))).ToArray()
+          };
         }
     }
 }
