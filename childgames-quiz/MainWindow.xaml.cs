@@ -5,7 +5,7 @@
     using System.Windows;
     using System.Windows.Media.Imaging;
 
-    using ChildGamesQuiz.Properties;
+    using Properties;
 
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -17,7 +17,7 @@
             InitializeComponent();
         }
 
-        protected Quiz Quiz { get; set; }
+      private Quiz Quiz { get; set; }
 
         private static TimeSpan CoolDownTime
         {
@@ -33,7 +33,7 @@
             {
                 this.Close();
             }
-            Quiz = new Quiz(new StreamReader("Data\\questions.csv"));
+            Quiz = new Quiz(new StreamReader("Data\\questions.csv"), Settings.ResultingAnswer);
             UpdateQuestion();
         }
 

@@ -5,5 +5,8 @@
     <Setting Name="TimeoutMinutes" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">7</Value>
     </Setting>
+    <Setting Name="ResultingAnswer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">****Замени всю эту строку на ответ**********</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
